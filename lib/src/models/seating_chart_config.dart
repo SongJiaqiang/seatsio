@@ -222,6 +222,8 @@ abstract class SeatingChartConfig implements Built<SeatingChartConfig, SeatingCh
 
   bool get enableChartRenderingFailedCallback;
 
+  bool get enableChartRerenderingStartedCallback;
+
   bool get enableObjectClickedCallback;
 
   bool get enableObjectSelectedCallback;
@@ -251,28 +253,31 @@ abstract class SeatingChartConfig implements Built<SeatingChartConfig, SeatingCh
   bool get enableSelectedObjectBookedCallback;
 
   factory SeatingChartConfig.init() {
-    return SeatingChartConfig((b) => b
-      ..workspaceKey = ""
-      ..eventKey = ""
-      ..region = 'eu'
-      ..language = 'en'
-      ..showLoadingAnimation = true
-      ..enableChartRenderedCallback = true
-      ..enableChartRenderingFailedCallback = true
-      ..enableObjectClickedCallback = true
-      ..enableObjectSelectedCallback = true
-      ..enableObjectDeselectedCallback = true
-      ..enableSelectionValidCallback = false
-      ..enableSelectionInvalidCallback = false
-      ..enableBestAvailableSelectedCallback = false
-      ..enableBestAvailableSelectionFailedCallback = false
-      ..enableHoldSucceededCallback = false
-      ..enableHoldFailedCallback = false
-      ..enableHoldTokenExpiredCallback = true
-      ..enableSessionInitializedCallback = true
-      ..enableReleaseHoldSucceededCallback = false
-      ..enableReleaseHoldFailedCallback = false
-      ..enableSelectedObjectBookedCallback = false);
+    return SeatingChartConfig(
+      (b) => b
+        ..workspaceKey = ""
+        ..eventKey = ""
+        ..region = 'eu'
+        ..language = 'en'
+        ..showLoadingAnimation = true
+        ..enableChartRenderedCallback = true
+        ..enableChartRenderingFailedCallback = true
+        ..enableChartRerenderingStartedCallback = false
+        ..enableObjectClickedCallback = true
+        ..enableObjectSelectedCallback = true
+        ..enableObjectDeselectedCallback = true
+        ..enableSelectionValidCallback = false
+        ..enableSelectionInvalidCallback = false
+        ..enableBestAvailableSelectedCallback = false
+        ..enableBestAvailableSelectionFailedCallback = false
+        ..enableHoldSucceededCallback = false
+        ..enableHoldFailedCallback = false
+        ..enableHoldTokenExpiredCallback = true
+        ..enableSessionInitializedCallback = true
+        ..enableReleaseHoldSucceededCallback = false
+        ..enableReleaseHoldFailedCallback = false
+        ..enableSelectedObjectBookedCallback = false,
+    );
   }
 
   // todo: Miss some key-values
