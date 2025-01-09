@@ -35,6 +35,7 @@ class SeatsioWebView extends StatefulWidget {
     SeatsioObjectsTicketTypesCallback? onReleaseHoldSucceeded,
     SeatsioObjectsTicketTypesCallback? onReleaseHoldFailed,
     SeatsioObjectCallback? onSelectedObjectBooked,
+    SeatsioOnChartRerenderingStartedCallback? onChartRerenderingStarted,
     Set<Factory<OneSequenceGestureRecognizer>> gestureRecognizers = const <Factory<OneSequenceGestureRecognizer>>{},
   })  : this._enableDebug = enableDebug,
         this._initialUrl = initialUrl,
@@ -56,6 +57,7 @@ class SeatsioWebView extends StatefulWidget {
         this._onReleaseHoldSucceeded = onReleaseHoldSucceeded,
         this._onReleaseHoldFailed = onReleaseHoldFailed,
         this._onSelectedObjectBooked = onSelectedObjectBooked,
+        this._onChartRerenderingStarted = onChartRerenderingStarted,
         this._gestureRecognizers = gestureRecognizers;
 
   /// Output some log if setting the [enableDebug] to true.
@@ -105,6 +107,8 @@ class SeatsioWebView extends StatefulWidget {
 
   final SeatsioObjectCallback? _onSelectedObjectBooked;
 
+  final SeatsioOnChartRerenderingStartedCallback? _onChartRerenderingStarted;
+
   final Set<Factory<OneSequenceGestureRecognizer>> _gestureRecognizers;
 
   @override
@@ -136,6 +140,7 @@ class _SeatsioWebViewState extends State<SeatsioWebView> {
       ..addJavaScriptChannel('onSessionInitialized', onMessageReceived: onSessionInitialized)
       ..addJavaScriptChannel('onReleaseHoldSucceeded', onMessageReceived: onReleaseHoldSucceeded)
       ..addJavaScriptChannel('onReleaseHoldFailed', onMessageReceived: onReleaseHoldFailed)
+      ..addJavaScriptChannel('onChartRerenderingStarted', onMessageReceived: onChartRerenderingStarted)
       ..setNavigationDelegate(
         NavigationDelegate(
           onPageFinished: (url) {
@@ -300,6 +305,13 @@ class _SeatsioWebViewState extends State<SeatsioWebView> {
     if (widget._enableDebug) debugPrint("[Seatsio]-> onReleaseHoldFailed callback message: ${message.message}");
     // todo: get objects and types from message
     widget._onReleaseHoldFailed?.call([], null);
+  }
+
+  void onChartRerenderingStarted(JavaScriptMessage message) {
+    if (widget._onChartRerenderingStarted == null) return;
+    if (widget._enableDebug) debugPrint("[Seatsio]-> onChartRerenderingStarted callback message: ${message.message}");
+    final seatingChart = SeatingChart(_seatsioController);
+    widget._onChartRerenderingStarted?.call(seatingChart);
   }
 
   void onSelectedObjectBooked(JavaScriptMessage message) {

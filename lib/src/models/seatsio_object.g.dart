@@ -341,24 +341,25 @@ class SeatsioObjectBuilder
     try {
       _$result = _$v ??
           new _$SeatsioObject._(
-              id: BuiltValueNullFieldError.checkNotNull(
-                  id, r'SeatsioObject', 'id'),
-              uuid: BuiltValueNullFieldError.checkNotNull(
-                  uuid, r'SeatsioObject', 'uuid'),
-              objectType: BuiltValueNullFieldError.checkNotNull(
-                  objectType, r'SeatsioObject', 'objectType'),
-              label: BuiltValueNullFieldError.checkNotNull(
-                  label, r'SeatsioObject', 'label'),
-              labelDetail: _labelDetail?.build(),
-              category: _category?.build(),
-              center: _center?.build(),
-              status: BuiltValueNullFieldError.checkNotNull(
-                  status, r'SeatsioObject', 'status'),
-              forSale: BuiltValueNullFieldError.checkNotNull(
-                  forSale, r'SeatsioObject', 'forSale'),
-              selectable: BuiltValueNullFieldError.checkNotNull(
-                  selectable, r'SeatsioObject', 'selectable'),
-              seats: seats);
+            id: BuiltValueNullFieldError.checkNotNull(
+                id, r'SeatsioObject', 'id'),
+            uuid: BuiltValueNullFieldError.checkNotNull(
+                uuid, r'SeatsioObject', 'uuid'),
+            objectType: BuiltValueNullFieldError.checkNotNull(
+                objectType, r'SeatsioObject', 'objectType'),
+            label: BuiltValueNullFieldError.checkNotNull(
+                label, r'SeatsioObject', 'label'),
+            labelDetail: _labelDetail?.build(),
+            category: _category?.build(),
+            center: _center?.build(),
+            status: BuiltValueNullFieldError.checkNotNull(
+                status, r'SeatsioObject', 'status'),
+            forSale: BuiltValueNullFieldError.checkNotNull(
+                forSale, r'SeatsioObject', 'forSale'),
+            selectable: BuiltValueNullFieldError.checkNotNull(
+                selectable, r'SeatsioObject', 'selectable'),
+            seats: seats,
+          );
     } catch (_) {
       late String _$failedField;
       try {

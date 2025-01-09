@@ -2,8 +2,7 @@ import '../models/seating_chart_config.dart';
 
 class SeatsioJsBridge {
   /// 将callback转成字符串
-  static List<String> buildCallbacksConfiguration(
-      SeatingChartConfig chartConfig) {
+  static List<String> buildCallbacksConfiguration(SeatingChartConfig chartConfig) {
     final List<String> callbacks = [];
 
     if (chartConfig.enableChartRenderedCallback) {
@@ -64,6 +63,10 @@ class SeatsioJsBridge {
 
     if (chartConfig.enableReleaseHoldFailedCallback) {
       callbacks.add(buildCallbackConfigAsJS("onReleaseHoldFailed"));
+    }
+
+    if (chartConfig.enableOnChartRerenderingStartedCallback) {
+      callbacks.add(buildCallbackConfigAsJS("onChartRerenderingStarted"));
     }
 
     if (chartConfig.enableSelectedObjectBookedCallback) {

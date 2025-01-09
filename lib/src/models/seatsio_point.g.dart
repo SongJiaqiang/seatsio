@@ -141,8 +141,9 @@ class SeatsioPointBuilder
   _$SeatsioPoint _build() {
     final _$result = _$v ??
         new _$SeatsioPoint._(
-            x: BuiltValueNullFieldError.checkNotNull(x, r'SeatsioPoint', 'x'),
-            y: BuiltValueNullFieldError.checkNotNull(y, r'SeatsioPoint', 'y'));
+          x: BuiltValueNullFieldError.checkNotNull(x, r'SeatsioPoint', 'x'),
+          y: BuiltValueNullFieldError.checkNotNull(y, r'SeatsioPoint', 'y'),
+        );
     replace(_$result);
     return _$result;
   }

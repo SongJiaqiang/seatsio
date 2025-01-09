@@ -87,6 +87,9 @@ class _$SeatingChartConfigSerializer
       'enableReleaseHoldFailedCallback',
       serializers.serialize(object.enableReleaseHoldFailedCallback,
           specifiedType: const FullType(bool)),
+      'enableOnChartRerenderingStartedCallback',
+      serializers.serialize(object.enableOnChartRerenderingStartedCallback,
+          specifiedType: const FullType(bool)),
       'enableSelectedObjectBookedCallback',
       serializers.serialize(object.enableSelectedObjectBookedCallback,
           specifiedType: const FullType(bool)),
@@ -698,6 +701,10 @@ class _$SeatingChartConfigSerializer
           result.enableReleaseHoldFailedCallback = serializers
               .deserialize(value, specifiedType: const FullType(bool))! as bool;
           break;
+        case 'enableOnChartRerenderingStartedCallback':
+          result.enableOnChartRerenderingStartedCallback = serializers
+              .deserialize(value, specifiedType: const FullType(bool))! as bool;
+          break;
         case 'enableSelectedObjectBookedCallback':
           result.enableSelectedObjectBookedCallback = serializers
               .deserialize(value, specifiedType: const FullType(bool))! as bool;
@@ -1201,6 +1208,8 @@ class _$SeatingChartConfig extends SeatingChartConfig {
   @override
   final bool enableReleaseHoldFailedCallback;
   @override
+  final bool enableOnChartRerenderingStartedCallback;
+  @override
   final bool enableSelectedObjectBookedCallback;
 
   factory _$SeatingChartConfig(
@@ -1271,6 +1280,7 @@ class _$SeatingChartConfig extends SeatingChartConfig {
       required this.enableSessionInitializedCallback,
       required this.enableReleaseHoldSucceededCallback,
       required this.enableReleaseHoldFailedCallback,
+      required this.enableOnChartRerenderingStartedCallback,
       required this.enableSelectedObjectBookedCallback})
       : super._() {
     BuiltValueNullFieldError.checkNotNull(
@@ -1311,6 +1321,10 @@ class _$SeatingChartConfig extends SeatingChartConfig {
         r'SeatingChartConfig', 'enableReleaseHoldSucceededCallback');
     BuiltValueNullFieldError.checkNotNull(enableReleaseHoldFailedCallback,
         r'SeatingChartConfig', 'enableReleaseHoldFailedCallback');
+    BuiltValueNullFieldError.checkNotNull(
+        enableOnChartRerenderingStartedCallback,
+        r'SeatingChartConfig',
+        'enableOnChartRerenderingStartedCallback');
     BuiltValueNullFieldError.checkNotNull(enableSelectedObjectBookedCallback,
         r'SeatingChartConfig', 'enableSelectedObjectBookedCallback');
   }
@@ -1403,6 +1417,8 @@ class _$SeatingChartConfig extends SeatingChartConfig {
             other.enableReleaseHoldSucceededCallback &&
         enableReleaseHoldFailedCallback ==
             other.enableReleaseHoldFailedCallback &&
+        enableOnChartRerenderingStartedCallback ==
+            other.enableOnChartRerenderingStartedCallback &&
         enableSelectedObjectBookedCallback ==
             other.enableSelectedObjectBookedCallback;
   }
@@ -1473,6 +1489,7 @@ class _$SeatingChartConfig extends SeatingChartConfig {
     _$hash = $jc(_$hash, enableSessionInitializedCallback.hashCode);
     _$hash = $jc(_$hash, enableReleaseHoldSucceededCallback.hashCode);
     _$hash = $jc(_$hash, enableReleaseHoldFailedCallback.hashCode);
+    _$hash = $jc(_$hash, enableOnChartRerenderingStartedCallback.hashCode);
     _$hash = $jc(_$hash, enableSelectedObjectBookedCallback.hashCode);
     _$hash = $jf(_$hash);
     return _$hash;
@@ -1555,6 +1572,8 @@ class _$SeatingChartConfig extends SeatingChartConfig {
               enableReleaseHoldSucceededCallback)
           ..add('enableReleaseHoldFailedCallback',
               enableReleaseHoldFailedCallback)
+          ..add('enableOnChartRerenderingStartedCallback',
+              enableOnChartRerenderingStartedCallback)
           ..add('enableSelectedObjectBookedCallback',
               enableSelectedObjectBookedCallback))
         .toString();
@@ -1899,6 +1918,14 @@ class SeatingChartConfigBuilder
   set enableReleaseHoldFailedCallback(bool? enableReleaseHoldFailedCallback) =>
       _$this._enableReleaseHoldFailedCallback = enableReleaseHoldFailedCallback;
 
+  bool? _enableOnChartRerenderingStartedCallback;
+  bool? get enableOnChartRerenderingStartedCallback =>
+      _$this._enableOnChartRerenderingStartedCallback;
+  set enableOnChartRerenderingStartedCallback(
+          bool? enableOnChartRerenderingStartedCallback) =>
+      _$this._enableOnChartRerenderingStartedCallback =
+          enableOnChartRerenderingStartedCallback;
+
   bool? _enableSelectedObjectBookedCallback;
   bool? get enableSelectedObjectBookedCallback =>
       _$this._enableSelectedObjectBookedCallback;
@@ -1979,6 +2006,8 @@ class SeatingChartConfigBuilder
       _enableReleaseHoldSucceededCallback =
           $v.enableReleaseHoldSucceededCallback;
       _enableReleaseHoldFailedCallback = $v.enableReleaseHoldFailedCallback;
+      _enableOnChartRerenderingStartedCallback =
+          $v.enableOnChartRerenderingStartedCallback;
       _enableSelectedObjectBookedCallback =
           $v.enableSelectedObjectBookedCallback;
       _$v = null;
@@ -2005,80 +2034,139 @@ class SeatingChartConfigBuilder
     try {
       _$result = _$v ??
           new _$SeatingChartConfig._(
-              workspaceKey: BuiltValueNullFieldError.checkNotNull(
-                  workspaceKey, r'SeatingChartConfig', 'workspaceKey'),
-              eventKey: BuiltValueNullFieldError.checkNotNull(
-                  eventKey, r'SeatingChartConfig', 'eventKey'),
-              chart: chart,
-              region: region,
-              language: language,
-              pricing: _pricing?.build(),
-              priceFormatter: priceFormatter,
-              numberOfPlacesToSelect: numberOfPlacesToSelect,
-              objectWithoutPricingSelectable: objectWithoutPricingSelectable,
-              objectWithoutCategorySelectable: objectWithoutCategorySelectable,
-              selectedObjects: _selectedObjects?.build(),
-              objectTooltip: _objectTooltip?.build(),
-              themePreset: themePreset,
-              themeColor: themeColor,
-              messages: _messages?.build(),
-              priceLevelsTooltipMessage: priceLevelsTooltipMessage,
-              maxSelectedObjects: maxSelectedObjects,
-              maxSelectedObjectList: maxSelectedObjectList,
-              availableCategories: _availableCategories?.build(),
-              unavailableCategories: _unavailableCategories?.build(),
-              selectBestAvailable: _selectBestAvailable?.build(),
-              alwaysShowSectionContents: alwaysShowSectionContents,
-              showSectionContents: showSectionContents,
-              showLegend: showLegend,
-              legend: _legend?.build(),
-              showMinimap: showMinimap,
-              inputDevice: inputDevice,
-              showActiveSectionTooltip: showActiveSectionTooltip,
-              showViewFromYourSeat: showViewFromYourSeat,
-              selectionValidators: _selectionValidators?.build(),
-              categories: _categories?.build(),
-              objectCategories: _objectCategories?.build(),
-              mode: mode,
-              loading: loading,
-              showLoadingAnimation: BuiltValueNullFieldError.checkNotNull(
-                  showLoadingAnimation, r'SeatingChartConfig', 'showLoadingAnimation'),
-              ticketListings: ticketListings,
-              holdOnSelectForGAs: holdOnSelectForGAs,
-              holdToken: holdToken,
-              session: session,
-              objectLabel: objectLabel,
-              objectIcon: objectIcon,
-              isObjectVisible: isObjectVisible,
-              isObjectSelectable: isObjectSelectable,
-              objectColor: objectColor,
-              sectionColor: sectionColor,
-              extraConfig: _extraConfig?.build(),
-              showFullScreenButton: showFullScreenButton,
-              channels: _channels?.build(),
-              enableChartRenderedCallback: BuiltValueNullFieldError.checkNotNull(
-                  enableChartRenderedCallback, r'SeatingChartConfig', 'enableChartRenderedCallback'),
-              enableChartRenderingFailedCallback:
-                  BuiltValueNullFieldError.checkNotNull(
-                      enableChartRenderingFailedCallback,
-                      r'SeatingChartConfig',
-                      'enableChartRenderingFailedCallback'),
-              enableObjectClickedCallback: BuiltValueNullFieldError.checkNotNull(
-                  enableObjectClickedCallback, r'SeatingChartConfig', 'enableObjectClickedCallback'),
-              enableObjectSelectedCallback:
-                  BuiltValueNullFieldError.checkNotNull(enableObjectSelectedCallback, r'SeatingChartConfig', 'enableObjectSelectedCallback'),
-              enableObjectDeselectedCallback: BuiltValueNullFieldError.checkNotNull(enableObjectDeselectedCallback, r'SeatingChartConfig', 'enableObjectDeselectedCallback'),
-              enableSelectionValidCallback: BuiltValueNullFieldError.checkNotNull(enableSelectionValidCallback, r'SeatingChartConfig', 'enableSelectionValidCallback'),
-              enableSelectionInvalidCallback: BuiltValueNullFieldError.checkNotNull(enableSelectionInvalidCallback, r'SeatingChartConfig', 'enableSelectionInvalidCallback'),
-              enableBestAvailableSelectedCallback: BuiltValueNullFieldError.checkNotNull(enableBestAvailableSelectedCallback, r'SeatingChartConfig', 'enableBestAvailableSelectedCallback'),
-              enableBestAvailableSelectionFailedCallback: BuiltValueNullFieldError.checkNotNull(enableBestAvailableSelectionFailedCallback, r'SeatingChartConfig', 'enableBestAvailableSelectionFailedCallback'),
-              enableHoldSucceededCallback: BuiltValueNullFieldError.checkNotNull(enableHoldSucceededCallback, r'SeatingChartConfig', 'enableHoldSucceededCallback'),
-              enableHoldFailedCallback: BuiltValueNullFieldError.checkNotNull(enableHoldFailedCallback, r'SeatingChartConfig', 'enableHoldFailedCallback'),
-              enableHoldTokenExpiredCallback: BuiltValueNullFieldError.checkNotNull(enableHoldTokenExpiredCallback, r'SeatingChartConfig', 'enableHoldTokenExpiredCallback'),
-              enableSessionInitializedCallback: BuiltValueNullFieldError.checkNotNull(enableSessionInitializedCallback, r'SeatingChartConfig', 'enableSessionInitializedCallback'),
-              enableReleaseHoldSucceededCallback: BuiltValueNullFieldError.checkNotNull(enableReleaseHoldSucceededCallback, r'SeatingChartConfig', 'enableReleaseHoldSucceededCallback'),
-              enableReleaseHoldFailedCallback: BuiltValueNullFieldError.checkNotNull(enableReleaseHoldFailedCallback, r'SeatingChartConfig', 'enableReleaseHoldFailedCallback'),
-              enableSelectedObjectBookedCallback: BuiltValueNullFieldError.checkNotNull(enableSelectedObjectBookedCallback, r'SeatingChartConfig', 'enableSelectedObjectBookedCallback'));
+            workspaceKey: BuiltValueNullFieldError.checkNotNull(
+                workspaceKey, r'SeatingChartConfig', 'workspaceKey'),
+            eventKey: BuiltValueNullFieldError.checkNotNull(
+                eventKey, r'SeatingChartConfig', 'eventKey'),
+            chart: chart,
+            region: region,
+            language: language,
+            pricing: _pricing?.build(),
+            priceFormatter: priceFormatter,
+            numberOfPlacesToSelect: numberOfPlacesToSelect,
+            objectWithoutPricingSelectable: objectWithoutPricingSelectable,
+            objectWithoutCategorySelectable: objectWithoutCategorySelectable,
+            selectedObjects: _selectedObjects?.build(),
+            objectTooltip: _objectTooltip?.build(),
+            themePreset: themePreset,
+            themeColor: themeColor,
+            messages: _messages?.build(),
+            priceLevelsTooltipMessage: priceLevelsTooltipMessage,
+            maxSelectedObjects: maxSelectedObjects,
+            maxSelectedObjectList: maxSelectedObjectList,
+            availableCategories: _availableCategories?.build(),
+            unavailableCategories: _unavailableCategories?.build(),
+            selectBestAvailable: _selectBestAvailable?.build(),
+            alwaysShowSectionContents: alwaysShowSectionContents,
+            showSectionContents: showSectionContents,
+            showLegend: showLegend,
+            legend: _legend?.build(),
+            showMinimap: showMinimap,
+            inputDevice: inputDevice,
+            showActiveSectionTooltip: showActiveSectionTooltip,
+            showViewFromYourSeat: showViewFromYourSeat,
+            selectionValidators: _selectionValidators?.build(),
+            categories: _categories?.build(),
+            objectCategories: _objectCategories?.build(),
+            mode: mode,
+            loading: loading,
+            showLoadingAnimation: BuiltValueNullFieldError.checkNotNull(
+                showLoadingAnimation,
+                r'SeatingChartConfig',
+                'showLoadingAnimation'),
+            ticketListings: ticketListings,
+            holdOnSelectForGAs: holdOnSelectForGAs,
+            holdToken: holdToken,
+            session: session,
+            objectLabel: objectLabel,
+            objectIcon: objectIcon,
+            isObjectVisible: isObjectVisible,
+            isObjectSelectable: isObjectSelectable,
+            objectColor: objectColor,
+            sectionColor: sectionColor,
+            extraConfig: _extraConfig?.build(),
+            showFullScreenButton: showFullScreenButton,
+            channels: _channels?.build(),
+            enableChartRenderedCallback: BuiltValueNullFieldError.checkNotNull(
+                enableChartRenderedCallback,
+                r'SeatingChartConfig',
+                'enableChartRenderedCallback'),
+            enableChartRenderingFailedCallback:
+                BuiltValueNullFieldError.checkNotNull(
+                    enableChartRenderingFailedCallback,
+                    r'SeatingChartConfig',
+                    'enableChartRenderingFailedCallback'),
+            enableObjectClickedCallback: BuiltValueNullFieldError.checkNotNull(
+                enableObjectClickedCallback,
+                r'SeatingChartConfig',
+                'enableObjectClickedCallback'),
+            enableObjectSelectedCallback: BuiltValueNullFieldError.checkNotNull(
+                enableObjectSelectedCallback,
+                r'SeatingChartConfig',
+                'enableObjectSelectedCallback'),
+            enableObjectDeselectedCallback:
+                BuiltValueNullFieldError.checkNotNull(
+                    enableObjectDeselectedCallback,
+                    r'SeatingChartConfig',
+                    'enableObjectDeselectedCallback'),
+            enableSelectionValidCallback: BuiltValueNullFieldError.checkNotNull(
+                enableSelectionValidCallback,
+                r'SeatingChartConfig',
+                'enableSelectionValidCallback'),
+            enableSelectionInvalidCallback:
+                BuiltValueNullFieldError.checkNotNull(
+                    enableSelectionInvalidCallback,
+                    r'SeatingChartConfig',
+                    'enableSelectionInvalidCallback'),
+            enableBestAvailableSelectedCallback:
+                BuiltValueNullFieldError.checkNotNull(
+                    enableBestAvailableSelectedCallback,
+                    r'SeatingChartConfig',
+                    'enableBestAvailableSelectedCallback'),
+            enableBestAvailableSelectionFailedCallback:
+                BuiltValueNullFieldError.checkNotNull(
+                    enableBestAvailableSelectionFailedCallback,
+                    r'SeatingChartConfig',
+                    'enableBestAvailableSelectionFailedCallback'),
+            enableHoldSucceededCallback: BuiltValueNullFieldError.checkNotNull(
+                enableHoldSucceededCallback,
+                r'SeatingChartConfig',
+                'enableHoldSucceededCallback'),
+            enableHoldFailedCallback: BuiltValueNullFieldError.checkNotNull(
+                enableHoldFailedCallback,
+                r'SeatingChartConfig',
+                'enableHoldFailedCallback'),
+            enableHoldTokenExpiredCallback:
+                BuiltValueNullFieldError.checkNotNull(
+                    enableHoldTokenExpiredCallback,
+                    r'SeatingChartConfig',
+                    'enableHoldTokenExpiredCallback'),
+            enableSessionInitializedCallback:
+                BuiltValueNullFieldError.checkNotNull(
+                    enableSessionInitializedCallback,
+                    r'SeatingChartConfig',
+                    'enableSessionInitializedCallback'),
+            enableReleaseHoldSucceededCallback:
+                BuiltValueNullFieldError.checkNotNull(
+                    enableReleaseHoldSucceededCallback,
+                    r'SeatingChartConfig',
+                    'enableReleaseHoldSucceededCallback'),
+            enableReleaseHoldFailedCallback:
+                BuiltValueNullFieldError.checkNotNull(
+                    enableReleaseHoldFailedCallback,
+                    r'SeatingChartConfig',
+                    'enableReleaseHoldFailedCallback'),
+            enableOnChartRerenderingStartedCallback:
+                BuiltValueNullFieldError.checkNotNull(
+                    enableOnChartRerenderingStartedCallback,
+                    r'SeatingChartConfig',
+                    'enableOnChartRerenderingStartedCallback'),
+            enableSelectedObjectBookedCallback:
+                BuiltValueNullFieldError.checkNotNull(
+                    enableSelectedObjectBookedCallback,
+                    r'SeatingChartConfig',
+                    'enableSelectedObjectBookedCallback'),
+          );
     } catch (_) {
       late String _$failedField;
       try {
@@ -2216,10 +2304,11 @@ class SelectedObjectBuilder
   _$SelectedObject _build() {
     final _$result = _$v ??
         new _$SelectedObject._(
-            label: BuiltValueNullFieldError.checkNotNull(
-                label, r'SelectedObject', 'label'),
-            ticketType: ticketType,
-            amount: amount);
+          label: BuiltValueNullFieldError.checkNotNull(
+              label, r'SelectedObject', 'label'),
+          ticketType: ticketType,
+          amount: amount,
+        );
     replace(_$result);
     return _$result;
   }
@@ -2401,22 +2490,25 @@ class ObjectTooltipBuilder
   _$ObjectTooltip _build() {
     final _$result = _$v ??
         new _$ObjectTooltip._(
-            showActionHint: BuiltValueNullFieldError.checkNotNull(
-                showActionHint, r'ObjectTooltip', 'showActionHint'),
-            showAvailability: BuiltValueNullFieldError.checkNotNull(
-                showAvailability, r'ObjectTooltip', 'showAvailability'),
-            showCategory: BuiltValueNullFieldError.checkNotNull(
-                showCategory, r'ObjectTooltip', 'showCategory'),
-            showLabel: BuiltValueNullFieldError.checkNotNull(
-                showLabel, r'ObjectTooltip', 'showLabel'),
-            showPricing: BuiltValueNullFieldError.checkNotNull(
-                showPricing, r'ObjectTooltip', 'showPricing'),
-            showUnavailableNotice: BuiltValueNullFieldError.checkNotNull(
-                showUnavailableNotice, r'ObjectTooltip', 'showUnavailableNotice'),
-            stylizedLabel: BuiltValueNullFieldError.checkNotNull(
-                stylizedLabel, r'ObjectTooltip', 'stylizedLabel'),
-            confirmSelectionOnMobile: BuiltValueNullFieldError.checkNotNull(
-                confirmSelectionOnMobile, r'ObjectTooltip', 'confirmSelectionOnMobile'));
+          showActionHint: BuiltValueNullFieldError.checkNotNull(
+              showActionHint, r'ObjectTooltip', 'showActionHint'),
+          showAvailability: BuiltValueNullFieldError.checkNotNull(
+              showAvailability, r'ObjectTooltip', 'showAvailability'),
+          showCategory: BuiltValueNullFieldError.checkNotNull(
+              showCategory, r'ObjectTooltip', 'showCategory'),
+          showLabel: BuiltValueNullFieldError.checkNotNull(
+              showLabel, r'ObjectTooltip', 'showLabel'),
+          showPricing: BuiltValueNullFieldError.checkNotNull(
+              showPricing, r'ObjectTooltip', 'showPricing'),
+          showUnavailableNotice: BuiltValueNullFieldError.checkNotNull(
+              showUnavailableNotice, r'ObjectTooltip', 'showUnavailableNotice'),
+          stylizedLabel: BuiltValueNullFieldError.checkNotNull(
+              stylizedLabel, r'ObjectTooltip', 'stylizedLabel'),
+          confirmSelectionOnMobile: BuiltValueNullFieldError.checkNotNull(
+              confirmSelectionOnMobile,
+              r'ObjectTooltip',
+              'confirmSelectionOnMobile'),
+        );
     replace(_$result);
     return _$result;
   }
@@ -2517,12 +2609,13 @@ class LegendForCategoryBuilder
   _$LegendForCategory _build() {
     final _$result = _$v ??
         new _$LegendForCategory._(
-            hideNonSelectableCategories: BuiltValueNullFieldError.checkNotNull(
-                hideNonSelectableCategories,
-                r'LegendForCategory',
-                'hideNonSelectableCategories'),
-            hidePricing: BuiltValueNullFieldError.checkNotNull(
-                hidePricing, r'LegendForCategory', 'hidePricing'));
+          hideNonSelectableCategories: BuiltValueNullFieldError.checkNotNull(
+              hideNonSelectableCategories,
+              r'LegendForCategory',
+              'hideNonSelectableCategories'),
+          hidePricing: BuiltValueNullFieldError.checkNotNull(
+              hidePricing, r'LegendForCategory', 'hidePricing'),
+        );
     replace(_$result);
     return _$result;
   }
@@ -2652,12 +2745,13 @@ class BestAvailableBuilder
     try {
       _$result = _$v ??
           new _$BestAvailable._(
-              number: BuiltValueNullFieldError.checkNotNull(
-                  number, r'BestAvailable', 'number'),
-              category: category.build(),
-              ticketTypes: ticketTypes.build(),
-              clearSelection: BuiltValueNullFieldError.checkNotNull(
-                  clearSelection, r'BestAvailable', 'clearSelection'));
+            number: BuiltValueNullFieldError.checkNotNull(
+                number, r'BestAvailable', 'number'),
+            category: category.build(),
+            ticketTypes: ticketTypes.build(),
+            clearSelection: BuiltValueNullFieldError.checkNotNull(
+                clearSelection, r'BestAvailable', 'clearSelection'),
+          );
     } catch (_) {
       late String _$failedField;
       try {
@@ -2755,8 +2849,9 @@ class SelectionValidatorBuilder
   _$SelectionValidator _build() {
     final _$result = _$v ??
         new _$SelectionValidator._(
-            type: BuiltValueNullFieldError.checkNotNull(
-                type, r'SelectionValidator', 'type'));
+          type: BuiltValueNullFieldError.checkNotNull(
+              type, r'SelectionValidator', 'type'),
+        );
     replace(_$result);
     return _$result;
   }
@@ -2864,12 +2959,13 @@ class TicketListingBuilder
   _$TicketListing _build() {
     final _$result = _$v ??
         new _$TicketListing._(
-            section: BuiltValueNullFieldError.checkNotNull(
-                section, r'TicketListing', 'section'),
-            quantity: BuiltValueNullFieldError.checkNotNull(
-                quantity, r'TicketListing', 'quantity'),
-            price: BuiltValueNullFieldError.checkNotNull(
-                price, r'TicketListing', 'price'));
+          section: BuiltValueNullFieldError.checkNotNull(
+              section, r'TicketListing', 'section'),
+          quantity: BuiltValueNullFieldError.checkNotNull(
+              quantity, r'TicketListing', 'quantity'),
+          price: BuiltValueNullFieldError.checkNotNull(
+              price, r'TicketListing', 'price'),
+        );
     replace(_$result);
     return _$result;
   }

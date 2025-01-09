@@ -193,10 +193,11 @@ class SeatsioLabelBuilder
   _$SeatsioLabel _build() {
     final _$result = _$v ??
         new _$SeatsioLabel._(
-            own: own,
-            parent: parent,
-            section: section,
-            displayedLabel: displayedLabel);
+          own: own,
+          parent: parent,
+          section: section,
+          displayedLabel: displayedLabel,
+        );
     replace(_$result);
     return _$result;
   }

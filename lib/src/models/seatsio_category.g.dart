@@ -244,13 +244,14 @@ class SeatsioCategoryBuilder
     try {
       _$result = _$v ??
           new _$SeatsioCategory._(
-              key: BuiltValueNullFieldError.checkNotNull(
-                  key, r'SeatsioCategory', 'key'),
-              label: label,
-              color: color,
-              pricing: _pricing?.build(),
-              accessible: accessible,
-              isFiltered: isFiltered);
+            key: BuiltValueNullFieldError.checkNotNull(
+                key, r'SeatsioCategory', 'key'),
+            label: label,
+            color: color,
+            pricing: _pricing?.build(),
+            accessible: accessible,
+            isFiltered: isFiltered,
+          );
     } catch (_) {
       late String _$failedField;
       try {

@@ -344,15 +344,16 @@ class SeatingConfigChangeBuilder
     try {
       _$result = _$v ??
           new _$SeatingConfigChange._(
-              objectColor: objectColor,
-              objectLabel: objectLabel,
-              objectIcon: objectIcon,
-              maxSelectedObjects: maxSelectedObjects,
-              maxSelectedObjectList: maxSelectedObjectList,
-              extraConfig: _extraConfig?.build(),
-              availableCategories: _availableCategories?.build(),
-              unavailableCategories: _unavailableCategories?.build(),
-              filteredCategories: _filteredCategories?.build());
+            objectColor: objectColor,
+            objectLabel: objectLabel,
+            objectIcon: objectIcon,
+            maxSelectedObjects: maxSelectedObjects,
+            maxSelectedObjectList: maxSelectedObjectList,
+            extraConfig: _extraConfig?.build(),
+            availableCategories: _availableCategories?.build(),
+            unavailableCategories: _unavailableCategories?.build(),
+            filteredCategories: _filteredCategories?.build(),
+          );
     } catch (_) {
       late String _$failedField;
       try {

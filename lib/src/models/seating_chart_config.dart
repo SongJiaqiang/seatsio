@@ -22,6 +22,7 @@ typedef SeatsioObjectsBoolCallback = void Function(List<SeatsioObject>, bool);
 typedef SeatsioObjectTicketTypeCallback = void Function(SeatsioObject, SeatsioTicketType?);
 typedef SeatsioObjectsTicketTypesCallback = void Function(List<SeatsioObject>, List<SeatsioTicketType>?);
 typedef SeatsioHoldTokenCallback = void Function(HoldToken holdToken);
+typedef SeatsioOnChartRerenderingStartedCallback = void Function(SeatingChart);
 
 enum SelectionValidatorType {
   consecutiveSeats,
@@ -248,31 +249,36 @@ abstract class SeatingChartConfig implements Built<SeatingChartConfig, SeatingCh
 
   bool get enableReleaseHoldFailedCallback;
 
+  bool get enableOnChartRerenderingStartedCallback;
+
   bool get enableSelectedObjectBookedCallback;
 
   factory SeatingChartConfig.init() {
-    return SeatingChartConfig((b) => b
-      ..workspaceKey = ""
-      ..eventKey = ""
-      ..region = 'eu'
-      ..language = 'en'
-      ..showLoadingAnimation = true
-      ..enableChartRenderedCallback = true
-      ..enableChartRenderingFailedCallback = true
-      ..enableObjectClickedCallback = true
-      ..enableObjectSelectedCallback = true
-      ..enableObjectDeselectedCallback = true
-      ..enableSelectionValidCallback = false
-      ..enableSelectionInvalidCallback = false
-      ..enableBestAvailableSelectedCallback = false
-      ..enableBestAvailableSelectionFailedCallback = false
-      ..enableHoldSucceededCallback = false
-      ..enableHoldFailedCallback = false
-      ..enableHoldTokenExpiredCallback = true
-      ..enableSessionInitializedCallback = true
-      ..enableReleaseHoldSucceededCallback = false
-      ..enableReleaseHoldFailedCallback = false
-      ..enableSelectedObjectBookedCallback = false);
+    return SeatingChartConfig(
+      (b) => b
+        ..workspaceKey = ""
+        ..eventKey = ""
+        ..region = 'eu'
+        ..language = 'en'
+        ..showLoadingAnimation = true
+        ..enableChartRenderedCallback = true
+        ..enableChartRenderingFailedCallback = true
+        ..enableObjectClickedCallback = true
+        ..enableObjectSelectedCallback = true
+        ..enableObjectDeselectedCallback = true
+        ..enableSelectionValidCallback = false
+        ..enableSelectionInvalidCallback = false
+        ..enableBestAvailableSelectedCallback = false
+        ..enableBestAvailableSelectionFailedCallback = false
+        ..enableHoldSucceededCallback = false
+        ..enableHoldFailedCallback = false
+        ..enableHoldTokenExpiredCallback = true
+        ..enableSessionInitializedCallback = true
+        ..enableReleaseHoldSucceededCallback = false
+        ..enableReleaseHoldFailedCallback = false
+        ..enableOnChartRerenderingStartedCallback = false
+        ..enableSelectedObjectBookedCallback = false,
+    );
   }
 
   // todo: Miss some key-values
