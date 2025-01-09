@@ -23,7 +23,7 @@ dev_dependencies:
     sdk: flutter
 
   build_runner: ^2.4.14
-  built_value_generator: ^8.7.0
+  built_value_generator: ^8.9.3
 
 # The following section is specific to Flutter.
 flutter:
