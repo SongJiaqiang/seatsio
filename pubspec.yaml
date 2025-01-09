@@ -15,7 +15,7 @@ dependencies:
 
   json_annotation: ^4.8.1
   built_collection: ^5.1.0
-  built_value: ^8.7.0
+  built_value: ^8.9.3
   webview_flutter: ^4.10.0
 
 dev_dependencies:
