@@ -48,6 +48,9 @@ class _$SeatingChartConfigSerializer
       'enableChartRenderingFailedCallback',
       serializers.serialize(object.enableChartRenderingFailedCallback,
           specifiedType: const FullType(bool)),
+      'enableChartRerenderingStartedCallback',
+      serializers.serialize(object.enableChartRerenderingStartedCallback,
+          specifiedType: const FullType(bool)),
       'enableObjectClickedCallback',
       serializers.serialize(object.enableObjectClickedCallback,
           specifiedType: const FullType(bool)),
@@ -86,9 +89,6 @@ class _$SeatingChartConfigSerializer
           specifiedType: const FullType(bool)),
       'enableReleaseHoldFailedCallback',
       serializers.serialize(object.enableReleaseHoldFailedCallback,
-          specifiedType: const FullType(bool)),
-      'enableOnChartRerenderingStartedCallback',
-      serializers.serialize(object.enableOnChartRerenderingStartedCallback,
           specifiedType: const FullType(bool)),
       'enableSelectedObjectBookedCallback',
       serializers.serialize(object.enableSelectedObjectBookedCallback,
@@ -649,6 +649,10 @@ class _$SeatingChartConfigSerializer
           result.enableChartRenderingFailedCallback = serializers
               .deserialize(value, specifiedType: const FullType(bool))! as bool;
           break;
+        case 'enableChartRerenderingStartedCallback':
+          result.enableChartRerenderingStartedCallback = serializers
+              .deserialize(value, specifiedType: const FullType(bool))! as bool;
+          break;
         case 'enableObjectClickedCallback':
           result.enableObjectClickedCallback = serializers.deserialize(value,
               specifiedType: const FullType(bool))! as bool;
@@ -699,10 +703,6 @@ class _$SeatingChartConfigSerializer
           break;
         case 'enableReleaseHoldFailedCallback':
           result.enableReleaseHoldFailedCallback = serializers
-              .deserialize(value, specifiedType: const FullType(bool))! as bool;
-          break;
-        case 'enableOnChartRerenderingStartedCallback':
-          result.enableOnChartRerenderingStartedCallback = serializers
               .deserialize(value, specifiedType: const FullType(bool))! as bool;
           break;
         case 'enableSelectedObjectBookedCallback':
@@ -1182,6 +1182,8 @@ class _$SeatingChartConfig extends SeatingChartConfig {
   @override
   final bool enableChartRenderingFailedCallback;
   @override
+  final bool enableChartRerenderingStartedCallback;
+  @override
   final bool enableObjectClickedCallback;
   @override
   final bool enableObjectSelectedCallback;
@@ -1207,8 +1209,6 @@ class _$SeatingChartConfig extends SeatingChartConfig {
   final bool enableReleaseHoldSucceededCallback;
   @override
   final bool enableReleaseHoldFailedCallback;
-  @override
-  final bool enableOnChartRerenderingStartedCallback;
   @override
   final bool enableSelectedObjectBookedCallback;
 
@@ -1267,6 +1267,7 @@ class _$SeatingChartConfig extends SeatingChartConfig {
       this.channels,
       required this.enableChartRenderedCallback,
       required this.enableChartRenderingFailedCallback,
+      required this.enableChartRerenderingStartedCallback,
       required this.enableObjectClickedCallback,
       required this.enableObjectSelectedCallback,
       required this.enableObjectDeselectedCallback,
@@ -1280,7 +1281,6 @@ class _$SeatingChartConfig extends SeatingChartConfig {
       required this.enableSessionInitializedCallback,
       required this.enableReleaseHoldSucceededCallback,
       required this.enableReleaseHoldFailedCallback,
-      required this.enableOnChartRerenderingStartedCallback,
       required this.enableSelectedObjectBookedCallback})
       : super._() {
     BuiltValueNullFieldError.checkNotNull(
@@ -1293,6 +1293,8 @@ class _$SeatingChartConfig extends SeatingChartConfig {
         r'SeatingChartConfig', 'enableChartRenderedCallback');
     BuiltValueNullFieldError.checkNotNull(enableChartRenderingFailedCallback,
         r'SeatingChartConfig', 'enableChartRenderingFailedCallback');
+    BuiltValueNullFieldError.checkNotNull(enableChartRerenderingStartedCallback,
+        r'SeatingChartConfig', 'enableChartRerenderingStartedCallback');
     BuiltValueNullFieldError.checkNotNull(enableObjectClickedCallback,
         r'SeatingChartConfig', 'enableObjectClickedCallback');
     BuiltValueNullFieldError.checkNotNull(enableObjectSelectedCallback,
@@ -1321,10 +1323,6 @@ class _$SeatingChartConfig extends SeatingChartConfig {
         r'SeatingChartConfig', 'enableReleaseHoldSucceededCallback');
     BuiltValueNullFieldError.checkNotNull(enableReleaseHoldFailedCallback,
         r'SeatingChartConfig', 'enableReleaseHoldFailedCallback');
-    BuiltValueNullFieldError.checkNotNull(
-        enableOnChartRerenderingStartedCallback,
-        r'SeatingChartConfig',
-        'enableOnChartRerenderingStartedCallback');
     BuiltValueNullFieldError.checkNotNull(enableSelectedObjectBookedCallback,
         r'SeatingChartConfig', 'enableSelectedObjectBookedCallback');
   }
@@ -1396,6 +1394,8 @@ class _$SeatingChartConfig extends SeatingChartConfig {
         enableChartRenderedCallback == other.enableChartRenderedCallback &&
         enableChartRenderingFailedCallback ==
             other.enableChartRenderingFailedCallback &&
+        enableChartRerenderingStartedCallback ==
+            other.enableChartRerenderingStartedCallback &&
         enableObjectClickedCallback == other.enableObjectClickedCallback &&
         enableObjectSelectedCallback == other.enableObjectSelectedCallback &&
         enableObjectDeselectedCallback ==
@@ -1417,8 +1417,6 @@ class _$SeatingChartConfig extends SeatingChartConfig {
             other.enableReleaseHoldSucceededCallback &&
         enableReleaseHoldFailedCallback ==
             other.enableReleaseHoldFailedCallback &&
-        enableOnChartRerenderingStartedCallback ==
-            other.enableOnChartRerenderingStartedCallback &&
         enableSelectedObjectBookedCallback ==
             other.enableSelectedObjectBookedCallback;
   }
@@ -1476,6 +1474,7 @@ class _$SeatingChartConfig extends SeatingChartConfig {
     _$hash = $jc(_$hash, channels.hashCode);
     _$hash = $jc(_$hash, enableChartRenderedCallback.hashCode);
     _$hash = $jc(_$hash, enableChartRenderingFailedCallback.hashCode);
+    _$hash = $jc(_$hash, enableChartRerenderingStartedCallback.hashCode);
     _$hash = $jc(_$hash, enableObjectClickedCallback.hashCode);
     _$hash = $jc(_$hash, enableObjectSelectedCallback.hashCode);
     _$hash = $jc(_$hash, enableObjectDeselectedCallback.hashCode);
@@ -1489,7 +1488,6 @@ class _$SeatingChartConfig extends SeatingChartConfig {
     _$hash = $jc(_$hash, enableSessionInitializedCallback.hashCode);
     _$hash = $jc(_$hash, enableReleaseHoldSucceededCallback.hashCode);
     _$hash = $jc(_$hash, enableReleaseHoldFailedCallback.hashCode);
-    _$hash = $jc(_$hash, enableOnChartRerenderingStartedCallback.hashCode);
     _$hash = $jc(_$hash, enableSelectedObjectBookedCallback.hashCode);
     _$hash = $jf(_$hash);
     return _$hash;
@@ -1551,6 +1549,8 @@ class _$SeatingChartConfig extends SeatingChartConfig {
           ..add('enableChartRenderedCallback', enableChartRenderedCallback)
           ..add('enableChartRenderingFailedCallback',
               enableChartRenderingFailedCallback)
+          ..add('enableChartRerenderingStartedCallback',
+              enableChartRerenderingStartedCallback)
           ..add('enableObjectClickedCallback', enableObjectClickedCallback)
           ..add('enableObjectSelectedCallback', enableObjectSelectedCallback)
           ..add(
@@ -1572,8 +1572,6 @@ class _$SeatingChartConfig extends SeatingChartConfig {
               enableReleaseHoldSucceededCallback)
           ..add('enableReleaseHoldFailedCallback',
               enableReleaseHoldFailedCallback)
-          ..add('enableOnChartRerenderingStartedCallback',
-              enableOnChartRerenderingStartedCallback)
           ..add('enableSelectedObjectBookedCallback',
               enableSelectedObjectBookedCallback))
         .toString();
@@ -1835,6 +1833,14 @@ class SeatingChartConfigBuilder
       _$this._enableChartRenderingFailedCallback =
           enableChartRenderingFailedCallback;
 
+  bool? _enableChartRerenderingStartedCallback;
+  bool? get enableChartRerenderingStartedCallback =>
+      _$this._enableChartRerenderingStartedCallback;
+  set enableChartRerenderingStartedCallback(
+          bool? enableChartRerenderingStartedCallback) =>
+      _$this._enableChartRerenderingStartedCallback =
+          enableChartRerenderingStartedCallback;
+
   bool? _enableObjectClickedCallback;
   bool? get enableObjectClickedCallback => _$this._enableObjectClickedCallback;
   set enableObjectClickedCallback(bool? enableObjectClickedCallback) =>
@@ -1918,14 +1924,6 @@ class SeatingChartConfigBuilder
   set enableReleaseHoldFailedCallback(bool? enableReleaseHoldFailedCallback) =>
       _$this._enableReleaseHoldFailedCallback = enableReleaseHoldFailedCallback;
 
-  bool? _enableOnChartRerenderingStartedCallback;
-  bool? get enableOnChartRerenderingStartedCallback =>
-      _$this._enableOnChartRerenderingStartedCallback;
-  set enableOnChartRerenderingStartedCallback(
-          bool? enableOnChartRerenderingStartedCallback) =>
-      _$this._enableOnChartRerenderingStartedCallback =
-          enableOnChartRerenderingStartedCallback;
-
   bool? _enableSelectedObjectBookedCallback;
   bool? get enableSelectedObjectBookedCallback =>
       _$this._enableSelectedObjectBookedCallback;
@@ -1990,6 +1988,8 @@ class SeatingChartConfigBuilder
       _enableChartRenderedCallback = $v.enableChartRenderedCallback;
       _enableChartRenderingFailedCallback =
           $v.enableChartRenderingFailedCallback;
+      _enableChartRerenderingStartedCallback =
+          $v.enableChartRerenderingStartedCallback;
       _enableObjectClickedCallback = $v.enableObjectClickedCallback;
       _enableObjectSelectedCallback = $v.enableObjectSelectedCallback;
       _enableObjectDeselectedCallback = $v.enableObjectDeselectedCallback;
@@ -2006,8 +2006,6 @@ class SeatingChartConfigBuilder
       _enableReleaseHoldSucceededCallback =
           $v.enableReleaseHoldSucceededCallback;
       _enableReleaseHoldFailedCallback = $v.enableReleaseHoldFailedCallback;
-      _enableOnChartRerenderingStartedCallback =
-          $v.enableOnChartRerenderingStartedCallback;
       _enableSelectedObjectBookedCallback =
           $v.enableSelectedObjectBookedCallback;
       _$v = null;
@@ -2096,6 +2094,11 @@ class SeatingChartConfigBuilder
                     enableChartRenderingFailedCallback,
                     r'SeatingChartConfig',
                     'enableChartRenderingFailedCallback'),
+            enableChartRerenderingStartedCallback:
+                BuiltValueNullFieldError.checkNotNull(
+                    enableChartRerenderingStartedCallback,
+                    r'SeatingChartConfig',
+                    'enableChartRerenderingStartedCallback'),
             enableObjectClickedCallback: BuiltValueNullFieldError.checkNotNull(
                 enableObjectClickedCallback,
                 r'SeatingChartConfig',
@@ -2156,11 +2159,6 @@ class SeatingChartConfigBuilder
                     enableReleaseHoldFailedCallback,
                     r'SeatingChartConfig',
                     'enableReleaseHoldFailedCallback'),
-            enableOnChartRerenderingStartedCallback:
-                BuiltValueNullFieldError.checkNotNull(
-                    enableOnChartRerenderingStartedCallback,
-                    r'SeatingChartConfig',
-                    'enableOnChartRerenderingStartedCallback'),
             enableSelectedObjectBookedCallback:
                 BuiltValueNullFieldError.checkNotNull(
                     enableSelectedObjectBookedCallback,

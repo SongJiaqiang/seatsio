@@ -65,7 +65,7 @@ class SeatsioJsBridge {
       callbacks.add(buildCallbackConfigAsJS("onReleaseHoldFailed"));
     }
 
-    if (chartConfig.enableOnChartRerenderingStartedCallback) {
+    if (chartConfig.enableChartRerenderingStartedCallback) {
       callbacks.add(buildCallbackConfigAsJS("onChartRerenderingStarted"));
     }
 

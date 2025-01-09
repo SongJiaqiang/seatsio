@@ -22,7 +22,6 @@ typedef SeatsioObjectsBoolCallback = void Function(List<SeatsioObject>, bool);
 typedef SeatsioObjectTicketTypeCallback = void Function(SeatsioObject, SeatsioTicketType?);
 typedef SeatsioObjectsTicketTypesCallback = void Function(List<SeatsioObject>, List<SeatsioTicketType>?);
 typedef SeatsioHoldTokenCallback = void Function(HoldToken holdToken);
-typedef SeatsioOnChartRerenderingStartedCallback = void Function(SeatingChart);
 
 enum SelectionValidatorType {
   consecutiveSeats,
@@ -223,6 +222,8 @@ abstract class SeatingChartConfig implements Built<SeatingChartConfig, SeatingCh
 
   bool get enableChartRenderingFailedCallback;
 
+  bool get enableChartRerenderingStartedCallback;
+
   bool get enableObjectClickedCallback;
 
   bool get enableObjectSelectedCallback;
@@ -249,8 +250,6 @@ abstract class SeatingChartConfig implements Built<SeatingChartConfig, SeatingCh
 
   bool get enableReleaseHoldFailedCallback;
 
-  bool get enableOnChartRerenderingStartedCallback;
-
   bool get enableSelectedObjectBookedCallback;
 
   factory SeatingChartConfig.init() {
@@ -263,6 +262,7 @@ abstract class SeatingChartConfig implements Built<SeatingChartConfig, SeatingCh
         ..showLoadingAnimation = true
         ..enableChartRenderedCallback = true
         ..enableChartRenderingFailedCallback = true
+        ..enableChartRerenderingStartedCallback = false
         ..enableObjectClickedCallback = true
         ..enableObjectSelectedCallback = true
         ..enableObjectDeselectedCallback = true
@@ -276,7 +276,6 @@ abstract class SeatingChartConfig implements Built<SeatingChartConfig, SeatingCh
         ..enableSessionInitializedCallback = true
         ..enableReleaseHoldSucceededCallback = false
         ..enableReleaseHoldFailedCallback = false
-        ..enableOnChartRerenderingStartedCallback = false
         ..enableSelectedObjectBookedCallback = false,
     );
   }

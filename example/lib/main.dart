@@ -5,9 +5,7 @@ import 'package:seatsio/seatsio.dart';
 const String YourWorkspaceKey = "";
 const String YourEventKey = "";
 
-void main() {
-  runApp(MyApp());
-}
+void main() => runApp(MyApp());
 
 class MyApp extends StatelessWidget {
   @override
@@ -23,7 +21,11 @@ class MyApp extends StatelessWidget {
 }
 
 class MyHomePage extends StatefulWidget {
-  MyHomePage({Key? key, required this.title}) : super(key: key);
+  MyHomePage({
+    super.key,
+    required this.title,
+  });
+
   final String title;
 
   @override
@@ -31,32 +33,33 @@ class MyHomePage extends StatefulWidget {
 }
 
 class _MyHomePageState extends State<MyHomePage> {
-  SeatsioWebViewController? _seatsioController;
-  final List<String> selectedObjectLabels = ['Try to click a seat object'];
-
+  late final SeatsioWebViewController? _seatsioController;
   late final SeatingChartConfig _chartConfig;
+
+  final selectedObjectLabels = ['Try to click a seat object'];
 
   @override
   void initState() {
     super.initState();
 
-    _chartConfig = SeatingChartConfig.init().rebuild((b) => b
-      ..workspaceKey = YourWorkspaceKey
-      ..eventKey = YourEventKey
-      ..pricing = ListBuilder<PricingForCategory>([
-        PricingForCategory(
-          (b) => b
-            ..category = "expensive"
-            ..price = 100,
-        ),
-      ])
-      ..enableHoldSucceededCallback = true
-      ..enableHoldFailedCallback = true
-      ..enableHoldTokenExpiredCallback = true
-      ..enableSessionInitializedCallback = true
-      ..enableObjectClickedCallback =
-          false // Set this to false if you want to have the objectToolTip to be shown
-      ..session = "continue");
+    _chartConfig = SeatingChartConfig.init().rebuild(
+      (b) => b
+        ..workspaceKey = YourWorkspaceKey
+        ..eventKey = YourEventKey
+        ..pricing = ListBuilder<PricingForCategory>([
+          PricingForCategory(
+            (b) => b
+              ..category = "expensive"
+              ..price = 100,
+          ),
+        ])
+        ..enableHoldSucceededCallback = true
+        ..enableHoldFailedCallback = true
+        ..enableHoldTokenExpiredCallback = true
+        ..enableSessionInitializedCallback = true
+        ..enableObjectClickedCallback = false // Set this to false if you want to have the objectToolTip to be shown
+        ..session = "continue",
+    );
   }
 
   @override
@@ -66,7 +69,7 @@ class _MyHomePageState extends State<MyHomePage> {
         title: Text(widget.title),
       ),
       body: Column(
-        children: <Widget>[
+        children: [
           SizedBox(
             height: 400,
             child: SeatsioWebView(
@@ -75,30 +78,31 @@ class _MyHomePageState extends State<MyHomePage> {
                 _seatsioController = controller;
                 _loadSeatsio();
               },
-              onChartRendered: (_) =>
-                  print("[Seatsio]->[example]-> onChartRendered"),
-              onChartRenderingFailed: () =>
-                  print("[Seatsio]->[example]-> onChartRenderingFailed"),
+              onChartRendered: (_) {
+                print("[Seatsio]->[example]-> onChartRendered");
+              },
+              onChartRenderingFailed: () {
+                print("[Seatsio]->[example]-> onChartRenderingFailed");
+              },
+              onChartRerenderingStarted: () {
+                print("[Seatsio]->[example]-> onChartRerenderingStarted");
+              },
               onObjectSelected: (object, type) {
-                print(
-                    "[Seatsio]->[example]-> onObjectSelected, label: ${object.label}");
+                print("[Seatsio]->[example]-> onObjectSelected, label: ${object.label}");
                 _selectSeat(object);
               },
               onObjectDeselected: (object, type) {
-                print(
-                    "[Seatsio]->[example]-> onObjectDeselected, label: ${object.label}");
+                print("[Seatsio]->[example]-> onObjectDeselected, label: ${object.label}");
                 _deselectSeat(object);
               },
               onHoldSucceeded: (objects, ticketTypes) {
-                print(
-                    "[Seatsio]->[example]-> onObjectSelected, objects: $objects | ticket types: $ticketTypes");
+                print("[Seatsio]->[example]-> onObjectSelected, objects: $objects | ticket types: $ticketTypes");
               },
               onHoldTokenExpired: () {
                 print("[Seatsio]->[example]-> onHoldTokenExpired");
               },
               onSessionInitialized: (holdToken) {
-                print(
-                    "[Seatsio]->[example]-> onSessionInitialized, holdToken: $holdToken");
+                print("[Seatsio]->[example]-> onSessionInitialized, holdToken: $holdToken");
               },
             ),
           ),
