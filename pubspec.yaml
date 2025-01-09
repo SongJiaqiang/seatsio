@@ -1,5 +1,5 @@
 name: seatsio
-description: -> 
+description: ->
   This is the Flutter version of seatsio SDK.
   It helps you integrate seating charts into Flutter apps.
 repository: https://github.com/SongJiaqiang/seatsio-flutter
@@ -24,12 +24,3 @@ dev_dependencies:
 
   build_runner: ^2.4.14
   built_value_generator: ^8.9.3
-
-# The following section is specific to Flutter.
-flutter:
-
-  # To add assets to your package, add an assets section, like this:
-  # assets:
-  #   - images/a_dot_burr.jpeg
-  #   - images/a_dot_ham.jpeg
-  #
